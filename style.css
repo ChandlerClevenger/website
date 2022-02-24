@@ -1,15 +1,29 @@
+* {
+  font-size: large;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
 .nav-button {
-    background-color: white;
-    color: black;
-    border: 2px solid #04AA6D;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-left: 20px;
+  background-color: #04aa6d;
+  color: black;
+  border: 2px solid #047048;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 20px;
 }
 
 .nav-button:hover {
-    background-color: #04AA6D;
+  background-color: #07e694;
 }
