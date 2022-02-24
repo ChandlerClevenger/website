@@ -65,6 +65,7 @@ session_start();
         <?php 
             if(isset($_SESSION['error'])) {
                 echo implode("<br>", $_SESSION['error']);
+                unset($_SESSION['error']);
             }
         ?>
         </div>

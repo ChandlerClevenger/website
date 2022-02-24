@@ -21,13 +21,15 @@ if( isset($invalidPassword) ) {
 
 $password = password_hash($password, PASSWORD_BCRYPT);
 
-$query = "SELECT COUNT(*) FROM users WHERE username=:u";
+$query = "SELECT COUNT(*) FROM USER WHERE username=:u";
 $sql = $conn->prepare($query);
 $sql->execute(["u"=>$username]);
 $result = $sql->fetchAll();
+echo $result[0][0] . "Result";
 if( $result[0][0] ){
     $_SESSION["error"] = array("Username is already being used.");
     header("Location: ../signup");
+    return;
 }
 
 $query = "INSERT INTO USER 
