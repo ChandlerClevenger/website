@@ -39,15 +39,15 @@ session_start();
             <label for="gender">Gender:</label>
             <div>
                 <label for="male">male</label>
-                <input type="radio" name="gender" id="male">
+                <input type="radio" name="gender" id="male" value="male">
             </div>
             <div>
                 <label for="female">female</label>
-                <input type="radio" name="gender" id="female">
+                <input type="radio" name="gender" id="female" value="female">
             </div>
             <div>
                 <label for="other">other</label>
-                <input type="radio" name="gender" id="other" checked>
+                <input type="radio" name="gender" id="other" value="other" checked>
             </div>
             
             <input type="submit" value="signup" id="submit">
@@ -61,19 +61,13 @@ session_start();
             <li>Must have at least 2 special characters!</li>
             <li>includes !@#$%^&*()_+</li>
         </ul>
-        <div class="error" id="error"></div>
-    <?php 
-        if(isset($_SESSION['error'])) {
-            echo "<div class='error' id='class'>";
-            if(gettype($_SESSION['error']) === gettype(array())) {
+        <div class="error" id="error">
+        <?php 
+            if(isset($_SESSION['error'])) {
                 echo implode("<br>", $_SESSION['error']);
-            } else {
-                echo $_SESSION['error']; 
             }
-            unset($_SESSION['error']);
-            echo "</div>";
-        }
-    ?>
+        ?>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>
