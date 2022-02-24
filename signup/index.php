@@ -12,7 +12,6 @@ session_start();
     <title>Sign up</title>
 </head>
 <body>
-
     <div>
         <h1 id="signup">signup</h1>
         <form action="signup.php" method="POST" id="form">
@@ -62,7 +61,6 @@ session_start();
             <li>Must have at least 2 special characters!</li>
             <li>includes !@#$%^&*()_+</li>
         </ul>
-        <div class="error" id="error"></div>
         <div class="error" id="error"></div>
     <?php 
         if(isset($_SESSION['error'])) {
