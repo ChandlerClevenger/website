@@ -25,7 +25,7 @@ $query = "SELECT COUNT(*) FROM USER WHERE username=:u";
 $sql = $conn->prepare($query);
 $sql->execute(["u"=>$username]);
 $result = $sql->fetchAll();
-echo $result[0][0] . "Result";
+
 if( $result[0][0] ){
     $_SESSION["error"] = array("Username is already being used.");
     header("Location: ../signup");
@@ -33,8 +33,8 @@ if( $result[0][0] ){
 }
 
 $query = "INSERT INTO USER 
-(Username, Password, Email, DOB, FavColor, BIO, Gender)
-VALUES (:u, :p, :email, :dob, :color, :bio, :gender);";
+(Username, Password, Email, DOB, FavColor, BIO, Gender, DayCreated)
+VALUES (:u, :p, :email, :dob, :color, :bio, :gender, :created);";
 $sql = $conn->prepare($query);
 $sql->execute([
     "u"=>$username, 
@@ -43,7 +43,8 @@ $sql->execute([
     "dob"=>$DOB,
     "color"=>$color,
     "bio"=>$BIO,
-    "gender"=>$gender
+    "gender"=>$gender,
+    "created"=>gmdate("Y-m-d H:i:s")
 ]);
 $_SESSION['user'] = $username;
 header("Location: ../profile");
