@@ -11,14 +11,20 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="login.php" method="POST">
+    <form action="login.php" method="POST" id="login-form">
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" class="username" autofocus>
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" class="password">
         <input type="submit" value="login">
     </form>
-    
+    <form action="login.php" method="POST">
+        <label hidden for="username">Username:</label>
+        <input hidden type="text" name="username" id="username" class="username" value="admin">
+        <label hidden for="password">Password:</label>
+        <input hidden type="password" name="password" id="password" class="password" value="AdminPassword12!!">
+        <input type="submit" value="login as admin">
+    </form>
     <div class="error">
     <?php 
         if(isset($_SESSION['error'])) {

@@ -15,5 +15,10 @@ if(!isset($_SESSION['user'])) header("Location: ../login");
 </head>
 <body>
     Hello, <?php echo $_SESSION['user']; ?>.
+    <?php
+        if($_SESSION['user'] == "admin"){
+            include("adminPowers.php");
+        }
+    ?>
 </body>
 </html>

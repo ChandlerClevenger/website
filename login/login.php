@@ -13,7 +13,7 @@ if(password_verify($password, $result["Password"])) {
     $_SESSION['user'] = $username;
     header("Location: ../profile");
 } else {
-    $_SESSION['error'] = "Credentials Invalid.";
+    $_SESSION['error'] = $username . " " . $password;
     header("Location: ../login");
 }
 
