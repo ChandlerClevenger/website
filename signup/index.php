@@ -58,6 +58,7 @@ session_start();
         <ul class="password-criteria">
             <li>Must be at least 12 characters long!</li>
             <li>Must have at least 2 numbers!</li>
+            <li>Must have capital</li>
             <li>Must have at least 2 special characters!</li>
             <li>includes !@#$%^&*()_+</li>
         </ul>

@@ -22,11 +22,15 @@ function validatePassword() {
     errors.push("Password is not at least 12 characters long.");
   }
 
-  if (!/[A-Z]{2}/.test(password)) {
+  if (!/\w*[A-Z]\w*[A-Z]\w*/.test(password)) {
     errors.push("Password must have 2 capital letters.");
   }
 
-  if (!/[!|@|#|\$|%|\^|&|\*|\(|\)|_|\+]{2}/.test(password)) {
+  if (
+    !/\w*[!|@|#|\$|%|\^|&|\*|\(|\)|_|\+]\w*[!|@|#|\$|%|\^|&|\*|\(|\)|_|\+]\w*/.test(
+      password
+    )
+  ) {
     errors.push("Password must have 2 special characters.");
   }
 }

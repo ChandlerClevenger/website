@@ -10,7 +10,7 @@ $color = $_POST["favorite-color"];
 $BIO = $_POST["bio"];
 $gender = $_POST["gender"];
 
-//need to change to validateInput instead and do all my validation there
+// need to change to validateInput instead and do all my validation there
 include("./validatePassword.php");
 if( isset($invalidPassword) ) {
     $_SESSION["error"] = $invalidPassword;
