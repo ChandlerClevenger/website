@@ -50,5 +50,3 @@ $_SESSION['user'] = $username;
 header("Location: ../profile");
 
 $conn = null;
-// certainly re-factorable with the logical flow of decisions
-// and to make the error printing better in ./index.php

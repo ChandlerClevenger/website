@@ -15,10 +15,13 @@ if(!isset($_SESSION['user'])) header("Location: ../login");
     <script src="script.js" defer></script>
 </head>
 <body>
-    Hello, <?php echo $_SESSION['user']; ?>.
+    <div id="welcome">Hello, <?php echo $_SESSION['user']; ?>.</div>
     <?php
         if($_SESSION['user'] == "adminadmin12"){
-            include("adminPowers.php");
+            //include("adminPowerSeeUsers.php");
+            include("adminPowerAddItem.php");
+        } else {
+            include("normalUser.php");
         }
     ?>
 </body>
