@@ -34,7 +34,7 @@ $result = $sql->fetch();
     echo "<tr data-id='". $result["ISBN"] ."'>";
     echo "<td>". $result["ISBN"] . "</td>";
     echo "<td>". $result["Name"] . "</td>";
-    echo "<td>". "$" . $result["Price"] . "</td>";
+    echo "<td>". "$" . number_format($result["Price"], 2) . "</td>";
     echo "<td>". $result["Author"] . "</td>";
     echo "<td>". "<img src='..\images\\". $result["ImgLocation"] ."'>". "</td>";
     echo "</tr>";
