@@ -36,6 +36,7 @@ table tr:nth-child(even) {
 
 table tr:hover {
   background-color: #ddd;
+  cursor: pointer;
 }
 
 table th {

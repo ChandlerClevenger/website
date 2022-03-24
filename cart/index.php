@@ -24,7 +24,7 @@ if ( isset($_POST['quantity']) && isset($_POST['id']) ) {
     header("Location: ../cart");
 }
 
-$query = "SELECT Username, ISBN, SUM(Quantity) AS Total FROM CART WHERE Username=:u GROUP BY ISBN;";
+$query = "SELECT * FROM CART WHERE Username=:u;";
 $sql = $conn->prepare($query);
 $sql->execute(["u"=>$user]);
 $result = $sql->fetchAll();
@@ -61,8 +61,8 @@ $result = $sql->fetchAll();
             echo "<tr>";
             echo "<td>". $r["ISBN"] . "</td>";
             echo "<td>". $book["Name"] . "</td>";
-            echo "<td>". $r["Total"] . "</td>";
-            $price = $book["Price"] * $r["Total"];
+            echo "<td>". $r["Quantity"] . "</td>";
+            $price = $book["Price"] * $r["Quantity"];
             echo "<td>$".  number_format($price, 2)  . "</td>";
             echo "<td>". "<img src='..\images\\". $book["ImgLocation"] ."'>". "</td>";
             echo "</tr>";
