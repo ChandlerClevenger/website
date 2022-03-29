@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../favicon.ico?" type="image/x-icon"/>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
     <title>Login</title>
 </head>
 <body>
@@ -18,15 +18,20 @@
             <input type="text" name="username" id="username" class="username" autofocus>
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" class="password">
-            <input type="submit" value="login">
+            <input type="submit" value="login" id="login-button" class="button">
         </form>
+        <div id="socials">
+            <a href="https://www.facebook.com/BillGates" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/BillGates" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/thisisbillgates" class="fa fa-instagram"></a>
+        </div>
     </div>
     <form action="login.php" method="POST">
         <label hidden for="username">Username:</label>
         <input hidden type="text" name="username" class="username" value="adminadmin12">
         <label hidden for="password">Password:</label>
         <input hidden type="password" name="password" class="password" value="!ThePassword12!">
-        <input type="submit" value="login as admin">
+        <input type="submit" value="login as admin" class="button">
     </form>
     <div class="error">
     <?php 
