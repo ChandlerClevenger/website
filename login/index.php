@@ -11,13 +11,16 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="login.php" method="POST" id="login-form">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" class="username" autofocus>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" class="password">
-        <input type="submit" value="login">
-    </form>
+    <div id="login-form">
+        <h1 id="login-header">Login</h1>
+        <form action="login.php" method="POST" id="form-details">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" class="username" autofocus>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" class="password">
+            <input type="submit" value="login">
+        </form>
+    </div>
     <form action="login.php" method="POST">
         <label hidden for="username">Username:</label>
         <input hidden type="text" name="username" class="username" value="adminadmin12">
