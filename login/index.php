@@ -20,9 +20,9 @@
     </form>
     <form action="login.php" method="POST">
         <label hidden for="username">Username:</label>
-        <input hidden type="text" name="username" id="username" class="username" value="adminadmin12">
+        <input hidden type="text" name="username" class="username" value="adminadmin12">
         <label hidden for="password">Password:</label>
-        <input hidden type="password" name="password" id="password" class="password" value="!ThePassword12!">
+        <input hidden type="password" name="password" class="password" value="!ThePassword12!">
         <input type="submit" value="login as admin">
     </form>
     <div class="error">
