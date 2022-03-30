@@ -55,7 +55,7 @@ imgs.forEach((image) => {
     event.preventDefault();
   });
 });
-
+// reset properties when not hovering
 imgs.forEach((image) => {
   image.addEventListener("mouseleave", (event) => {
     root.style.setProperty("--translate-x", "0px");
