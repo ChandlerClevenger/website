@@ -37,7 +37,7 @@ echo "</tbody></table>";
 ?>
 
 <div id="actions">
-    <h2>Actions<h2>
+    <h2 id="actions-header">Actions</h2>
     
     <button id="checkout" class="button">Checkout</button>
     <?php

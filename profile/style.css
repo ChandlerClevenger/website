@@ -1,7 +1,9 @@
 :root {
   --table-head-color: rgb(0, 0, 0);
   --table-body-odd-color: rgb(129, 129, 129);
-  --actions-left: 60vw;
+  --actions-left: 40vw;
+  --translate-x: 0px;
+  --translate-y: 0px;
 }
 
 * {
@@ -22,6 +24,24 @@ table {
   overflow-y: scroll;
   overflow-x: hidden;
   border-collapse: collapse;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+
+table img:hover {
+  position: relative;
+  top: 0px;
+  animation-name: translate;
+  animation-fill-mode: forwards;
+  transform: scale(2);
+}
+
+thead {
+  background-color: var(--table-head-color);
+  color: white;
+  position: sticky;
+  top: 0px;
 }
 
 #books td img {
@@ -34,10 +54,7 @@ table {
   top: 5vh;
   bottom: 0px;
   left: 50%;
-  transform: translateX(-60%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
-    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
-    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  transform: translateX(-50%);
 }
 
 #books tbody {
@@ -48,13 +65,6 @@ table {
   font-size: larger;
 }
 
-#books thead {
-  background-color: var(--table-head-color);
-  color: white;
-  position: sticky;
-  top: 0px;
-}
-
 #books td {
   padding: 1rem;
 }
@@ -63,27 +73,20 @@ table {
   background-color: var(--table-body-odd-color);
 }
 
-#books td img:hover {
-  transform: scale(2);
-  z-index: 100;
+table#cart {
+  width: calc(95vw - var(--actions-left));
 }
 
-#cart td {
-  font-size: 0.75rem;
+table#cart td {
+  text-align: center;
+  font-size: 1rem;
 }
 
-#cart td img {
-  height: clamp(5vh, 70px, 10vh);
+table#cart td img {
+  height: clamp(5vh, 100px, 10vh);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#actions {
+div#actions {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -92,6 +95,19 @@ form {
   background-color: var(--table-body-odd-color);
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  border-left: 1px solid black;
+}
+
+h2#actions-header {
+  text-align: center;
+  font-size: larger;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .arrows {
@@ -126,6 +142,30 @@ form {
   color: red;
 }
 
+::-webkit-scrollbar {
+  width: 1vw;
+}
+::-webkit-scrollbar-button {
+  background-color: #666;
+}
+::-webkit-scrollbar-track {
+  background-color: #646464;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #666;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-corner {
+  background-color: #646464;
+}
+::-webkit-resizer {
+  background-color: #666;
+}
+
 @keyframes slideout {
   from {
     left: var(--actions-left);
@@ -143,5 +183,17 @@ form {
 
   to {
     left: var(--actions-left);
+  }
+}
+
+@keyframes translate {
+  from {
+    top: 0px;
+    right: 0px;
+  }
+
+  to {
+    top: calc(var(--translate-y) + 1rem);
+    right: calc(var(--translate-x) + 1rem);
   }
 }
