@@ -1,3 +1,11 @@
+:root {
+  --table-head-color: rgb(0, 0, 0);
+  --table-body-odd-color: rgb(129, 129, 129);
+  --actions-left: 40vw;
+  --translate-x: 0px;
+  --translate-y: 0px;
+}
+
 * {
   font-size: 20px;
   margin: 0;
@@ -6,42 +14,120 @@
 html,
 body {
   height: 100%;
-  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-color: rgb(207, 206, 206);
+  overflow: hidden;
 }
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
+  width: fit-content;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border-collapse: collapse;
-  width: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
-table td,
-table th {
-  font-size: larger;
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-table td img {
-  height: clamp(10vh, 150px, 30vh);
-}
-
-table td img:hover {
+table img:hover {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  animation-name: translate;
+  animation-fill-mode: forwards;
   transform: scale(2);
 }
 
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-table tr:hover {
-  background-color: #ddd;
-}
-
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04bdb3;
+thead {
+  background-color: var(--table-head-color);
   color: white;
+  position: sticky;
+  top: 0px;
+}
+
+#cart td img {
+  height: clamp(10vh, 150px, 30vh);
+}
+
+#cart {
+  display: block;
+  position: absolute;
+  top: 5vh;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#cart tbody {
+  cursor: pointer;
+}
+
+#cart th {
+  font-size: larger;
+}
+
+#cart td {
+  padding: 1rem;
+}
+
+#cart tbody tr:nth-child(odd) {
+  background-color: var(--table-body-odd-color);
+}
+
+table#cart {
+  width: calc(95vw - var(--actions-left));
+}
+
+table#cart td {
+  text-align: center;
+  font-size: 1rem;
+}
+
+table#cart td img {
+  height: clamp(5vh, 100px, 10vh);
+}
+
+#welcome {
+  text-align: center;
+  font-size: xx-large;
+}
+
+#error {
+  color: red;
+}
+
+::-webkit-scrollbar {
+  width: 1vw;
+}
+::-webkit-scrollbar-button {
+  background-color: #666;
+}
+::-webkit-scrollbar-track {
+  background-color: #646464;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #666;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-corner {
+  background-color: #646464;
+}
+::-webkit-resizer {
+  background-color: #666;
+}
+
+@keyframes translate {
+  from {
+    top: 0px;
+    right: 0px;
+  }
+
+  to {
+    top: var(--translate-y);
+    right: calc(var(--translate-x) + 1vw);
+  }
 }
