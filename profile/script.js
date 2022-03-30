@@ -33,6 +33,8 @@ checkout.addEventListener("click", (event) => {
 });
 
 // image translation logic
+// NEED TO ADD FOR BOTTOM CASE img.bottom > table.bottom
+
 const imgs = document.querySelectorAll("table img");
 const root = document.documentElement;
 imgs.forEach((image) => {
@@ -49,7 +51,19 @@ imgs.forEach((image) => {
     if (imageBoundry.right > tableBoundry.right) {
       root.style.setProperty(
         "--translate-x",
-        tableBoundry.right - imageBoundry.right + "px"
+        imageBoundry.right - tableBoundry.right + "px"
+      );
+    }
+    console.log(
+      "imageBoundry.bottom",
+      imageBoundry.bottom,
+      "tableBoundry.bottom",
+      tableBoundry.bottom
+    );
+    if (imageBoundry.bottom > tableBoundry.bottom) {
+      root.style.setProperty(
+        "--translate-y",
+        tableBoundry.bottom - imageBoundry.bottom + "px"
       );
     }
     event.preventDefault();

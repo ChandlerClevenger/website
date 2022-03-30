@@ -32,6 +32,7 @@ table {
 table img:hover {
   position: relative;
   top: 0px;
+  right: 0px;
   animation-name: translate;
   animation-fill-mode: forwards;
   transform: scale(2);
@@ -193,7 +194,7 @@ form {
   }
 
   to {
-    top: calc(var(--translate-y) + 1rem);
-    right: calc(var(--translate-x) + 1rem);
+    top: var(--translate-y);
+    right: calc(var(--translate-x) + 1vw);
   }
 }
