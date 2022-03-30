@@ -1,47 +1,73 @@
+:root {
+  --table-head-color: rgb(0, 0, 0);
+  --table-body-odd-color: rgb(129, 129, 129);
+}
+
 * {
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0;
 }
 
 html,
 body {
   height: 100%;
-  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-color: rgb(207, 206, 206);
+  overflow: hidden;
 }
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
+  width: fit-content;
+  height: fit-content;
   border-collapse: collapse;
-  width: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
-table td,
-table th {
-  font-size: larger;
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-table td img {
-  height: clamp(10vh, 150px, 30vh);
-}
-
-table td img:hover {
+table img:hover {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  animation-name: translate;
+  animation-fill-mode: forwards;
   transform: scale(2);
 }
 
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-table tr:hover {
-  background-color: #ddd;
-}
-
-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04bdb3;
+thead {
+  background-color: var(--table-head-color);
   color: white;
+  position: sticky;
+  top: 0px;
+}
+
+#books td img {
+  height: clamp(10vh, 150px, 30vh);
+}
+
+#books {
+  display: block;
+  position: relative;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#books th {
+  font-size: larger;
+}
+
+#books td {
+  padding: 1rem;
+}
+
+#books tbody tr:nth-child(odd) {
+  background-color: var(--table-body-odd-color);
+}
+
+form {
+  position: relative;
+  text-align: center;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
 }

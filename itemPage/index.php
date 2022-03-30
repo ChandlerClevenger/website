@@ -21,7 +21,7 @@ $result = $sql->fetch();
 </head>
 <body>
     <?php 
-    echo "<table>";
+    echo "<table id='books'><thead>";
     echo 
     "<tr>
     <th>ISBN-13</th>
@@ -29,16 +29,16 @@ $result = $sql->fetch();
     <th>Price</th>
     <th>Author</th>
     <th>Image</th>
-    </tr>";
+    </tr></thead>";
     
-    echo "<tr data-id='". $result["ISBN"] ."'>";
+    echo "<tbody><tr data-id='". $result["ISBN"] ."'>";
     echo "<td>". $result["ISBN"] . "</td>";
     echo "<td>". $result["Name"] . "</td>";
     echo "<td>". "$" . number_format($result["Price"], 2) . "</td>";
     echo "<td>". $result["Author"] . "</td>";
     echo "<td>". "<img src='..\images\\". $result["ImgLocation"] ."'>". "</td>";
     echo "</tr>";
-    echo "</table>";
+    echo "</tbody></table>";
     
     ?>
 
