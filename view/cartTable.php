@@ -6,14 +6,14 @@ $result = $sql->fetchAll();
 
 echo "<table id='cart'>";
 echo 
-"<tr>
+"<thead><tr>
 <th>ISBN-13</th>
 <th>Book Name</th>
 <th>Quantity</th>
 <th>Price</th>
 <th>Image</th>
-</tr>";
-
+</tr></thead>";
+echo "<tbody>";
 foreach($result as $r) {
     $ISBN = $r["ISBN"];
     $query = "SELECT * FROM BOOK WHERE ISBN=:ISBN";
@@ -30,4 +30,5 @@ foreach($result as $r) {
     echo "<td>". "<img src='..\images\\". $book["ImgLocation"] ."'>". "</td>";
     echo "</tr>";
 }
+echo "</tbody>";
 echo "</table>";
