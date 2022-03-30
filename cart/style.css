@@ -58,10 +58,6 @@ thead {
   transform: translateX(-50%);
 }
 
-#cart tbody {
-  cursor: pointer;
-}
-
 #cart th {
   font-size: larger;
 }
