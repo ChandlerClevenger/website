@@ -16,7 +16,6 @@ arrowDiv.addEventListener("click", (event) => {
   let direction = event.target.classList.contains("next") ? "prev" : "next";
   if (direction == "next") {
     actionsDiv.style.animationName = "slidein";
-    console.log();
     event.target.classList.remove("prev");
     event.target.classList.add("next");
   } else {
@@ -41,7 +40,6 @@ imgs.forEach((image) => {
   image.addEventListener("mouseover", (event) => {
     let imageBoundry = event.target.getBoundingClientRect();
     let tableBoundry = table.getBoundingClientRect();
-    console.log("imageBoundry", imageBoundry, "tableBoundry", tableBoundry);
     if (imageBoundry.top < tableBoundry.top) {
       root.style.setProperty(
         "--translate-y",
