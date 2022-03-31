@@ -46,7 +46,7 @@ thead {
 }
 
 #cart td img {
-  height: clamp(10vh, 150px, 30vh);
+  height: clamp(10vh, 20vh, 30vh);
 }
 
 #cart {
@@ -73,10 +73,6 @@ thead {
 table#cart td {
   text-align: center;
   font-size: 1rem;
-}
-
-table#cart td img {
-  height: clamp(5vh, 100px, 10vh);
 }
 
 .change-quantity {
@@ -124,6 +120,6 @@ table#cart td img {
 
   to {
     top: var(--translate-y);
-    right: calc(var(--translate-x) + 1vw);
+    right: calc(var(--translate-x) + 2.5vw);
   }
 }
