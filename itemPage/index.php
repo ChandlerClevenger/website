@@ -42,7 +42,7 @@ $result = $sql->fetch();
     
     ?>
 
-    <form action="..\cart\index.php" method="POST">
+    <form action="..\model\updateCart.php" method="POST">
         <lable>Quantity</lable>
         <input type="number" min=1 value=1 name="quantity">
         <input type="text" value="<?php echo $result["ISBN"] ?>" name="id" hidden>
