@@ -70,10 +70,6 @@ thead {
   background-color: var(--table-body-odd-color);
 }
 
-table#cart {
-  width: calc(95vw - var(--actions-left));
-}
-
 table#cart td {
   text-align: center;
   font-size: 1rem;
@@ -81,6 +77,10 @@ table#cart td {
 
 table#cart td img {
   height: clamp(5vh, 100px, 10vh);
+}
+
+.change-quantity {
+  width: clamp(1rem, 5vw, 10vw);
 }
 
 #welcome {
