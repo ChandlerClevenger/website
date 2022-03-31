@@ -21,10 +21,10 @@ foreach($result as $r) {
     $sql->execute(["ISBN"=>$ISBN]);
     $book = $sql->fetch();
 
-    echo "<tr>";
+    echo "<tr data-id=". $r["ISBN"] .">";
     echo "<td>". $r["ISBN"] . "</td>";
     echo "<td>". $book["Name"] . "</td>";
-    echo "<td>". $r["Quantity"] . "</td>";
+    echo "<td class='quantity'>". $r["Quantity"] . "</td>";
     $price = $book["Price"] * $r["Quantity"];
     echo "<td>$".  number_format($price, 2)  . "</td>";
     echo "<td>". "<img src='..\images\\". $book["ImgLocation"] ."'>". "</td>";
