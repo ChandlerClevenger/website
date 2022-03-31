@@ -6,11 +6,11 @@ try {
     $sql->execute();
     $result = $sql->fetchAll();
 } catch (exception $e) {
-    echo $e. "<br>ERROR FETCHING DATA!";
+    echo $e . "<br>ERROR FETCHING DATA!";
 }
 
 echo "<table id='books'>";
-echo 
+echo
 "<thead><tr>
 <th>ISBN-13</th>
 <th>Name</th>
@@ -19,14 +19,14 @@ echo
 <th>Image</th>
 </tr></thead>";
 echo "<tbody>";
-if(isset($result)) {
-    foreach($result as $r) {
-        echo "<tr data-id='". $r["ISBN"] ."'>";
-        echo "<td>". $r["ISBN"] . "</td>";
-        echo "<td>". $r["Name"] . "</td>";
-        echo "<td>". "$" . $r["Price"] . "</td>";
-        echo "<td>". $r["Author"] . "</td>";
-        echo "<td>". "<img src='..\images\\". $r["ImgLocation"]."'>" . "</td>";
+if (isset($result)) {
+    foreach ($result as $r) {
+        echo "<tr data-id='" . $r["ISBN"] . "'>";
+        echo "<td>" . $r["ISBN"] . "</td>";
+        echo "<td>" . $r["Name"] . "</td>";
+        echo "<td>" . "$" . $r["Price"] . "</td>";
+        echo "<td>" . $r["Author"] . "</td>";
+        echo "<td>" . "<img src='..\images\\" . $r["ImgLocation"] . "'>" . "</td>";
         echo "</tr>";
     }
 } else {
@@ -38,15 +38,20 @@ echo "</tbody></table>";
 
 <div id="actions">
     <h2 id="actions-header">Actions</h2>
-    
+
     <button id="checkout" class="button">Checkout</button>
     <?php
-        // DISPLAY CART
-        try {
-            include("../view/cartTable.php");
-        } catch (exception $e) {
-            echo $e. "FAILURE TO FETCH CART";
-        }
+    // DISPLAY CART
+    try {
+        include("../view/cartTable.php");
+    } catch (exception $e) {
+        echo $e . "FAILURE TO FETCH CART";
+    }
+
+    //DISPLAY VIEWED
+    if (isset($_COOKIE['visited'])) {
+        include("../view/visitedTable.php");
+    }
     ?>
     <div id="arrow" class="arrows prev"></div>
 </div>

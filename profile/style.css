@@ -74,16 +74,33 @@ thead {
   background-color: var(--table-body-odd-color);
 }
 
-table#cart {
+#cart {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-height: 50vh;
+}
+
+#visited {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-height: 40vh;
+}
+
+table#cart,
+table#visited {
   width: calc(95vw - var(--actions-left));
 }
 
-table#cart td {
+table#cart td,
+table#visited td {
   text-align: center;
   font-size: 1rem;
 }
 
-table#cart td img {
+table#cart img,
+table#visited img {
   height: clamp(5vh, 100px, 10vh);
 }
 
