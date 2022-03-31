@@ -34,3 +34,51 @@ imgs.forEach((image) => {
     root.style.setProperty("--translate-y", "0px");
   });
 });
+
+let rows = document.querySelectorAll("#cart tbody tr");
+let currentQuantities = {};
+rows.forEach((row) => {
+  let newQuantityDiv = document.createElement("input");
+  let quantityDiv = row.querySelector(".quantity");
+  let quantityVal = quantityDiv.innerText;
+  newQuantityDiv.type = "number";
+  newQuantityDiv.value = quantityVal;
+  newQuantityDiv.classList.add("change-quantity");
+  quantityDiv.innerHTML = "";
+  quantityDiv.appendChild(newQuantityDiv);
+  currentQuantities[row.getAttribute("data-id")] = quantityVal;
+});
+
+let updateButton = document.querySelector("#update");
+updateButton.addEventListener("click", () => {
+  rows.forEach((row) => {
+    let newQuantity = row.querySelector(".change-quantity").value;
+    let id = row.getAttribute("data-id");
+    let difference = newQuantity - currentQuantities[id];
+    if (newQuantity <= 0) {
+      deleteBook(id);
+    } else if (currentQuantities[id] != newQuantity) {
+      updateBookQuantity(id, difference);
+    }
+  });
+});
+
+function deleteBook(id) {
+  let req = new XMLHttpRequest();
+  let params = "id=" + id;
+  req.open("POST", "../model/deleteBook.php");
+  req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  req.send(params);
+  delete currentQuantities[id];
+  window.location.href = ".";
+}
+
+function updateBookQuantity(id, newQuantity) {
+  let req = new XMLHttpRequest();
+  let params = "id=" + id + "&quantity=" + newQuantity;
+  req.open("POST", "../model/updateCart.php");
+  req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  req.send(params);
+  currentQuantities[id] = newQuantity;
+  window.location.href = ".";
+}
